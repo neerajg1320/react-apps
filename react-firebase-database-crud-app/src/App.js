@@ -34,8 +34,6 @@ function App() {
           name, 
           datetime: format(new Date(datetime), 'yyyy/MM/dd HH:mm:ss SSS')
         });
-        
-        // todoList.push({id, ...todo});
       }
       
       console.log('todoList:', todoList);
@@ -59,10 +57,6 @@ function App() {
   }
 
   const deleteTodo = (id) => {
-    // firestoreDatabase.collection('todos').doc(id).delete().then(res => {
-    //   console.log('Deleted!', res);
-    // });
-    console.log('Delete: ', id);
     realtimeDatabase.ref('todos').child(id).remove();
   }
 
@@ -73,9 +67,6 @@ function App() {
   }
 
   const editTodo = () => {
-    // firestoreDatabase.collection('todos').doc(toUpdateId).update({
-    //   todo: update
-    // });
     realtimeDatabase.ref('todos').child(toUpdateId).set({
       name: update,
       datetime: firebase.database.ServerValue.TIMESTAMP
