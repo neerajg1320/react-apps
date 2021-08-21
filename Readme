@@ -1,1 +1,12 @@
 A collection of React Apps for Experimentation and Practice
+
+node_modules is common for projects. This is to save ourselves from creating multiple node_modules folders.
+From inside the react application we link node_mudules folder to '../node_modules'
+
+% pwd
+/Users/neeraj/Projects/Practice/Reactjs/react-apps/react-firebase-database-app
+% ls -l node_modules 
+lrwxr-xr-x  1 neeraj  staff  15 Aug 21 11:24 node_modules -> ../node_modules
+neeraj@Neerajs-MacBook-Pro react-firebase-database-app %
+
+
