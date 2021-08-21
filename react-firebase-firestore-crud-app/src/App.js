@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import firestore from './firebase'
+import firestoreDatabase from './firebase'
 import firebase from 'firebase';
 
 import { AddCircleOutlineRounded, DeleteOutlineRounded, Edit } from '@material-ui/icons';
@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     console.log('useEffect Hook!!!');
 
-    firestore.collection('todos').orderBy('datetime', 'desc').onSnapshot(snapshot => {
+    firestoreDatabase.collection('todos').orderBy('datetime', 'desc').onSnapshot(snapshot => {
       console.log('Firebase Snap!');
       setTodos(snapshot.docs.map(doc => {
         return {
@@ -35,7 +35,7 @@ function App() {
 
   const addTodo = (event) => {
     event.preventDefault();
-    firestore.collection('todos').add({
+    firestoreDatabase.collection('todos').add({
       todo: input,
       datetime: firebase.firestore.FieldValue.serverTimestamp()
     })
@@ -43,7 +43,7 @@ function App() {
   }
 
   const deleteTodo = (id) => {
-    firestore.collection('todos').doc(id).delete().then(res => {
+    firestoreDatabase.collection('todos').doc(id).delete().then(res => {
       console.log('Deleted!', res);
     });
   }
@@ -55,7 +55,7 @@ function App() {
   }
 
   const editTodo = () => {
-    firestore.collection('todos').doc(toUpdateId).update({
+    firestoreDatabase.collection('todos').doc(toUpdateId).update({
       todo: update
     });
     setOpen(false);
