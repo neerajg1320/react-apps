@@ -9,4 +9,9 @@ From inside the react application we link node_mudules folder to '../node_module
 lrwxr-xr-x  1 neeraj  staff  15 Aug 21 11:24 node_modules -> ../node_modules
 neeraj@Neerajs-MacBook-Pro react-firebase-database-app %
 
+We will create new Project using cp command
 
+# R - recursive copy, 
+# H - do not follow and copy symbolic links
+
+cp -RH react-firebase-database-app react-new-app
